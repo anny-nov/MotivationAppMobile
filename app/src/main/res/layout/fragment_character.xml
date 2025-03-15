@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="16dp"
+    android:background="@color/white">
+
+    <!-- Аватар персонажа -->
+    <ImageView
+        android:id="@+id/ivCharacterAvatar"
+        android:layout_width="226dp"
+        android:layout_height="204dp"
+        android:layout_marginBottom="16dp"
+        android:contentDescription="@string/character_avatar"
+        android:scaleType="centerCrop"
+        android:src="@drawable/ic_placeholder" />
+
+    <!-- Имя персонажа -->
+    <TextView
+        android:id="@+id/tvCharacterName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Character Name"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="8dp" />
+
+    <!-- Уровень персонажа -->
+    <TextView
+        android:id="@+id/tvCharacterLevel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Level: 0"
+        android:textSize="16sp"
+        android:layout_marginBottom="4dp" />
+
+    <!-- Опыт персонажа -->
+    <TextView
+        android:id="@+id/tvCharacterExperience"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="EXP: 0/100"
+        android:textSize="16sp"
+        android:layout_marginBottom="4dp" />
+
+    <!-- Здоровье персонажа -->
+    <TextView
+        android:id="@+id/tvCharacterHealth"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="HP: 0/100"
+        android:textSize="16sp"
+        android:layout_marginBottom="4dp" />
+
+</LinearLayout>
+

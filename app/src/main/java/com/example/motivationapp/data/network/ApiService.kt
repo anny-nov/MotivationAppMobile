@@ -3,6 +3,7 @@ package com.example.motivationapp.data.network
 import com.example.motivationapp.data.models.Event
 import com.example.motivationapp.data.models.Habit
 import com.example.motivationapp.data.models.User
+import com.example.motivationapp.data.models.Character
 import retrofit2.Response
 import retrofit2.http.*
 
@@ -19,6 +20,12 @@ interface ApiService {
     // Получить привычки пользователя
     @GET("/users/{userId}/habits")
     suspend fun getHabitsByUserId(@Path("userId") userId: Int): Response<List<Habit>>
+
+    @POST("/login")
+    suspend fun login(
+        @Query("email") email: String,
+        @Query("password") password: String
+    ): Response<User>
 
     // Создать новую привычку
     @POST("/habits/")
@@ -39,4 +46,15 @@ interface ApiService {
     // Получить события для привычки
     @GET("/events/{habitId}")
     suspend fun getEventsByHabitId(@Path("habitId") habitId: Int): Response<List<Event>>
+
+    // Создать нового персонажа для пользователя
+    @POST("/characters/")
+    suspend fun createCharacter(
+        @Query("user_id") userId: Int,
+        @Query("name") name: String
+    ): Response<Character>
+
+    // Получить персонажа по userId
+    @GET("/characters/{userId}")
+    suspend fun getCharacterByUserId(@Path("userId") userId: Int): Response<Character>
 }

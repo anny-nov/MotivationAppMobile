@@ -40,6 +40,6 @@ class HabitApp : Application() {
         userRepository = UserRepository(apiService)
         habitRepository = HabitRepository(apiService)
         eventRepository = EventRepository(apiService)
-        characterRepository = CharacterRepository()
+        characterRepository = CharacterRepository(apiService)
     }
 }

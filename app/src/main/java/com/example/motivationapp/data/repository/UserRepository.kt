@@ -22,4 +22,13 @@ class UserRepository(private val apiService: ApiService) {
         // Этот метод можно реализовать позже, если сервер поддерживает эндпоинт
         return null
     }
+
+    suspend fun loginUser(email: String, password: String): User? {
+        val response = apiService.login(email, password)
+        return if (response.isSuccessful) {
+            response.body()
+        } else {
+            null
+        }
+    }
 }

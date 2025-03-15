@@ -1,24 +1,33 @@
 package com.example.motivationapp.data.repository
 
-import com.example.motivationapp.data.models.Character
+import android.util.Log
+import com.example.motivationapp.data.models.Character as AppCharacter
+import com.example.motivationapp.data.network.ApiService
 
-class CharacterRepository {
+class CharacterRepository(private val apiService: ApiService) {
 
-    fun getDefaultCharacter(): Character {
-        // Возвращаем персонажа по умолчанию
-        return Character(
-            id = 1,
-            name = "Default",
-            level = 1,
-            experience = 0,
-            health = 100,
-            maxHealth = 100,
-            imageUrl = null
-        )
+    // Создать персонажа для пользователя
+    suspend fun createCharacter(userId: Int, name: String): com.example.motivationapp.data.models.Character? {
+        val response = apiService.createCharacter(userId, name)
+        return if (response.isSuccessful) {
+            response.body()
+        } else {
+            null
+        }
     }
 
-    fun getCharacterById(characterId: Int): Character? {
-        // Пока возвращаем null, так как серверный функционал не реализован
-        return null
+    // Получить персонажа по userId
+    suspend fun getCharacterByUserId(userId: Int): com.example.motivationapp.data.models.Character? {
+        val response = apiService.getCharacterByUserId(userId)
+
+        Log.d("CharacterRepository", "Response code: ${response.code()}")
+        Log.d("CharacterRepository", "Response body: ${response.body()}")
+
+        return if (response.isSuccessful) {
+            response.body()
+        } else {
+            null
+        }
     }
 }
+
