@@ -1,10 +1,10 @@
 package com.example.motivationapp
 
 import android.content.Context
-import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.ui.NavigationUI
 import com.example.motivationapp.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -22,13 +22,19 @@ class MainActivity : AppCompatActivity() {
         val username = sharedPref.getString("username", null)
         val email = sharedPref.getString("email", null)
 
+        val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
+        val navController = navHostFragment.navController
+
+        val bottomNav = binding.bottomNavigationView
+        NavigationUI.setupWithNavController(bottomNav, navController)
+
         if (userId != -1 && username != null && email != null) {
             // Если данные пользователя есть, отправляем его на экран персонажа
-            val navController = (supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment).navController
+            //val navController = (supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment).navController
             navController.navigate(R.id.action_loginFragment_to_characterFragment)
         } else {
             // Если данных нет (пользователь не зарегистрирован), отправляем на экран регистрации
-            val navController = (supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment).navController
+            //val navController = (supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment).navController
             navController.navigate(R.id.action_loginFragment_to_registerFragment)
         }
     }

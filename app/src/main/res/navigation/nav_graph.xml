@@ -35,5 +35,10 @@
         android:id="@+id/characterFragment"
         android:name="com.example.motivationapp.ui.fragments.CharacterFragment"
         android:label="Character" />
+
+    <fragment
+        android:id="@+id/habitListFragment"
+        android:name="com.example.motivationapp.ui.fragments.HabitListFragment"
+        android:label="Habits" />
 </navigation>
 
