@@ -25,9 +25,9 @@ class HabitListFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.addHabitButton.setOnClickListener {
-            // TODO: здесь откроется окно создания привычки
-            Toast.makeText(requireContext(), "Добавить привычку", Toast.LENGTH_SHORT).show()
+            CreateHabitDialogFragment().show(parentFragmentManager, "CreateHabitDialog")
         }
+
     }
 
     override fun onDestroyView() {

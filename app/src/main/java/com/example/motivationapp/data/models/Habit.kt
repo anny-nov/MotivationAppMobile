@@ -7,5 +7,6 @@ data class Habit(
     val name: String,                // Название привычки
     val description: String? = null, // Описание (опционально)
     val repeat: String,              // Тип повторения
+    val difficulty: Int = 1,
     val createAt: String? = null // Время создания
 )

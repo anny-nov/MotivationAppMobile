@@ -33,7 +33,8 @@ interface ApiService {
         @Query("name") name: String,
         @Query("description") description: String,
         @Query("user_id") userId: Int,
-        @Query("repeat") repeat: String
+        @Query("repeat") repeat: String,
+        @Query("difficulty") difficulty: Int
     ): Response<Habit>
 
     // Создать событие для привычки

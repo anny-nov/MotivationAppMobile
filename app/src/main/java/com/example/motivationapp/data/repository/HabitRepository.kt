@@ -21,7 +21,8 @@ class HabitRepository(private val apiService: ApiService) {
             name = habit.name,
             description = habit.description ?: "",
             userId = habit.userId,
-            repeat = habit.repeat
+            repeat = habit.repeat,
+            difficulty = habit.difficulty
         )
         return if (response.isSuccessful) {
             response.body()
