@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/dialog_forecast_root"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="24dp"
+    android:background="@android:color/white">
+
+    <TextView
+        android:id="@+id/dialog_message"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Выбери одну из альтернатив:"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_marginBottom="16dp" />
+
+    <Button
+        android:id="@+id/alternative1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Альтернатива 1"
+        android:layout_marginBottom="12dp" />
+
+    <Button
+        android:id="@+id/alternative2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Альтернатива 2"
+        android:layout_marginBottom="12dp" />
+
+    <Button
+        android:id="@+id/alternative3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Альтернатива 3"
+        android:layout_marginBottom="24dp" />
+
+    <Button
+        android:id="@+id/cancel_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Отмена"
+        android:textColor="@android:color/holo_red_dark" />
+</LinearLayout>
+

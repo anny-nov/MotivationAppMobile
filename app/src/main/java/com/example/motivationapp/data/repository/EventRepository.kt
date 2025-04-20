@@ -1,5 +1,6 @@
 package com.example.motivationapp.data.repository
 
+import android.util.Log
 import com.example.motivationapp.data.models.Event
 import com.example.motivationapp.data.network.ApiService
 import java.text.SimpleDateFormat
@@ -29,6 +30,7 @@ class EventRepository(private val apiService: ApiService) {
     // Получить события по habitId
     suspend fun getEventsByHabitId(habitId: Int): List<Event> {
         val response = apiService.getEventsByHabitId(habitId)
+        Log.d("EventRepository", "Response body: ${response.body()}")
         return if (response.isSuccessful) {
             response.body() ?: emptyList()
         } else {

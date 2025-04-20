@@ -32,6 +32,12 @@ class CreateHabitDialogFragment : DialogFragment() {
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
 
         binding = FragmentCreateHabitBinding.inflate(LayoutInflater.from(context))
+
+        val defaultName = arguments?.getString(ARG_DEFAULT_NAME)
+        defaultName?.let {
+            binding.habitNameEditText.setText(it)
+        }
+
         setupStars()
         dialog.setContentView(binding.root)
 
@@ -118,5 +124,17 @@ class CreateHabitDialogFragment : DialogFragment() {
             }
         }
         updateStars(1)
+    }
+
+    companion object {
+        private const val ARG_DEFAULT_NAME = "default_name"
+
+        fun newInstance(defaultName: String): CreateHabitDialogFragment {
+            val fragment = CreateHabitDialogFragment()
+            val args = Bundle()
+            args.putString(ARG_DEFAULT_NAME, defaultName)
+            fragment.arguments = args
+            return fragment
+        }
     }
 }

@@ -4,6 +4,7 @@ import com.example.motivationapp.data.models.Event
 import com.example.motivationapp.data.models.Habit
 import com.example.motivationapp.data.models.User
 import com.example.motivationapp.data.models.Character
+import com.example.motivationapp.data.models.ForecastResponse
 import retrofit2.Response
 import retrofit2.http.*
 
@@ -58,4 +59,10 @@ interface ApiService {
     // Получить персонажа по userId
     @GET("/characters/{userId}")
     suspend fun getCharacterByUserId(@Path("userId") userId: Int): Response<Character>
+
+    @GET("habits/{id}/forecast")
+    suspend fun getForecast(@Path("id") habitId: Int): Response<ForecastResponse>
+
+    @DELETE("habits/{id}")
+    suspend fun deleteHabit(@Path("id") habitId: Int): Response<Unit>
 }
